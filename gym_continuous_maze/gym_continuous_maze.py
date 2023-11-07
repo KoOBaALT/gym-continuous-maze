@@ -1,9 +1,9 @@
 from typing import Dict, Optional, Tuple
 
-import gym
+import gymnasium as gym
 import numpy as np
 import pygame
-from gym import spaces
+from gymnasium import spaces
 from pygame import gfxdraw
 
 BLACK = (0, 0, 0)
