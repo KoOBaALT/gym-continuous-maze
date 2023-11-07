@@ -126,7 +126,7 @@ class ContinuousMaze(gym.Env):
         self.isopen = True
         self.all_pos = []
 
-    def step(self, action: np.ndarray) -> Tuple[np.ndarray, float, bool, Dict]:
+    def step(self, action: np.ndarray) -> Tuple[np.ndarray, float, bool, bool, Dict]:
         new_pos = self.pos + action
         for wall in self.walls:
             intersection = get_intersect(wall[0], wall[1], self.pos, new_pos)
@@ -143,7 +143,7 @@ class ContinuousMaze(gym.Env):
         return observation, reward, terminated, truncated, info
 
     def reset(self, seed: int | None = None, options: dict = {}) -> np.ndarray:
-        self.pos = np.zeros(2)
+        self.pos = np.zeros(2, dtype=np.float32)
         self.all_pos.append(self.pos.copy())
         observation = self.pos.copy()
         info = {}
