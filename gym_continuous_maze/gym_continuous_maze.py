@@ -142,10 +142,12 @@ class ContinuousMaze(gym.Env):
         info = {}
         return observation, reward, terminated, truncated, info
 
-    def reset(self, seed=None) -> np.ndarray:
+    def reset(self, seed: int | None, options: dict[str, Any] = {}) -> np.ndarray:
         self.pos = np.zeros(2)
         self.all_pos.append(self.pos.copy())
-        return self.pos.copy()
+        observation = self.pos.copy()
+        info = {}
+        return observation, info
 
     def render(self, mode: str = "human"):
         screen_dim = 500
