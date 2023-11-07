@@ -140,7 +140,7 @@ class ContinuousMaze(gym.Env):
         terminated = False
         truncated = False
         info = {}
-        return observation, reward, terminated, truncated, info
+        return observation, reward, terminated, info
 
     def reset(self, seed: int | None = None, options: dict = {}) -> np.ndarray:
         self.pos = np.zeros(2, dtype=np.float32)
