@@ -136,7 +136,7 @@ class ContinuousMaze(gym.Env):
         self.all_pos.append(self.pos.copy())
         return self.pos.copy(), 0.0, False, {}
 
-    def reset(self) -> np.ndarray:
+    def reset(self, seed=None) -> np.ndarray:
         self.pos = np.zeros(2)
         self.all_pos.append(self.pos.copy())
         return self.pos.copy()
